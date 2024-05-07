@@ -17,7 +17,7 @@ export const globalStyles = StyleSheet.create({
   calculatorContainer: {
     padding: 20,
     flex: 1,
-    justifyContent: "flex-end"
+    justifyContent: 'flex-end',
   },
   mainResult: {
     color: colors.textPrimary,
@@ -29,28 +29,28 @@ export const globalStyles = StyleSheet.create({
   subResult: {
     color: colors.textSecondary,
     fontSize: 40,
-    textAlign: "right",
-    fontWeight: "300"
+    textAlign: 'right',
+    fontWeight: '300',
   },
   button: {
     height: 80,
     width: 80,
     backgroundColor: colors.darkGray,
     borderRadius: 100,
-    justifyContent: "center",
-    marginHorizontal: 10
+    justifyContent: 'center',
+    marginHorizontal: 10,
   },
   buttonText: {
-    textAlign: "center",
+    textAlign: 'center',
     padding: 10,
     fontSize: 30,
-    color: "white",
-    fontWeight: "300"
+    color: 'white',
+    fontWeight: '300',
   },
   row: {
-    flexDirection: "row",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
     marginBottom: 18,
-    paddingHorizontal: 10
-  }
+    paddingHorizontal: 10,
+  },
 });
