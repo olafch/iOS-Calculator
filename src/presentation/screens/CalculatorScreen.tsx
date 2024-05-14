@@ -4,8 +4,18 @@ import {CalculatorButton} from '../components/CalculatorButton';
 import {useCalculator} from '../hooks/useCalculator';
 
 export const CalculatorScreen = () => {
-  const {number, buildNumber, toggleSign, clean, deleteOperation} =
-    useCalculator();
+  const {
+    number,
+    prevNumber,
+    buildNumber,
+    toggleSign,
+    clean,
+    deleteOperation,
+    divideOperation,
+    multiplyOperation,
+    subtractOperation,
+    addOperation,
+  } = useCalculator();
   return (
     <View style={globalStyles.calculatorContainer}>
       <View style={{paddingHorizontal: 30, paddingVertical: 20}}>
@@ -15,7 +25,12 @@ export const CalculatorScreen = () => {
           style={globalStyles.mainResult}>
           {number}
         </Text>
-        <Text style={globalStyles.subResult}>15</Text>
+        <Text
+          adjustsFontSizeToFit
+          numberOfLines={1}
+          style={globalStyles.subResult}>
+          {prevNumber === '0' ? ' ' : prevNumber}
+        </Text>
       </View>
 
       <View style={globalStyles.row}>
@@ -38,7 +53,7 @@ export const CalculatorScreen = () => {
           blackText
         />
         <CalculatorButton
-          onPress={() => console.log('÷')}
+          onPress={divideOperation}
           label="÷"
           color={colors.orange}
         />
@@ -47,20 +62,20 @@ export const CalculatorScreen = () => {
         <CalculatorButton
           onPress={() => buildNumber('7')}
           label="7"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
           onPress={() => buildNumber('8')}
           label="8"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
           onPress={() => buildNumber('9')}
           label="9"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
-          onPress={() => console.log('×')}
+          onPress={multiplyOperation}
           label="×"
           color={colors.orange}
         />
@@ -69,20 +84,20 @@ export const CalculatorScreen = () => {
         <CalculatorButton
           onPress={() => buildNumber('4')}
           label="4"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
           onPress={() => buildNumber('5')}
           label="5"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
           onPress={() => buildNumber('6')}
           label="6"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
-          onPress={() => console.log('+')}
+          onPress={addOperation}
           label="+"
           color={colors.orange}
         />
@@ -91,20 +106,20 @@ export const CalculatorScreen = () => {
         <CalculatorButton
           onPress={() => buildNumber('1')}
           label="1"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
           onPress={() => buildNumber('2')}
           label="2"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
           onPress={() => buildNumber('3')}
           label="3"
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
-          onPress={() => console.log('-')}
+          onPress={subtractOperation}
           label="-"
           color={colors.orange}
         />
@@ -113,13 +128,13 @@ export const CalculatorScreen = () => {
         <CalculatorButton
           onPress={() => buildNumber('0')}
           label="0"
-          color={colors.lightGray}
+          color={colors.darkGray}
           doubleSize
         />
         <CalculatorButton
           onPress={() => buildNumber('.')}
           label="."
-          color={colors.lightGray}
+          color={colors.darkGray}
         />
         <CalculatorButton
           onPress={() => console.log('=')}
