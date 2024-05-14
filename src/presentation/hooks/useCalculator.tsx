@@ -8,12 +8,12 @@ export const useCalculator = () => {
     if (number.startsWith('0') || number.startsWith('-0')) {
       //Punto decimal
       if (numberString === '.') {
-        setNumber(number + numberString);
+        return setNumber(number + numberString);
       }
 
       //Evaluar si es otro cero y no hay punto
       if (numberString === '0' && number.includes('.')) {
-        setNumber(number + numberString);
+        return setNumber(number + numberString);
       }
 
       //Evaluar si es diferente de cero, no hay punto, y es el primer número
