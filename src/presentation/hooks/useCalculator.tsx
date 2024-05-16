@@ -34,7 +34,6 @@ export const useCalculator = () => {
     setFormula('');
   };
 
-  //Borrar el último número
   const deleteOperation = () => {
     const numWithoutLastCharacter = number.substring(0, number.length - 1);
 
@@ -52,29 +51,24 @@ export const useCalculator = () => {
     if (number.includes('-')) {
       return setNumber(number.replace('-', ''));
     }
-
     setNumber('-' + number);
   };
 
   const buildNumber = (numberString: string) => {
     if (number.includes('.') && numberString === '.') return;
     if (number.startsWith('0') || number.startsWith('-0')) {
-      //Punto decimal
       if (numberString === '.') {
         return setNumber(number + numberString);
       }
 
-      //Evaluar si es otro cero y no hay punto
       if (numberString === '0' && number.includes('.')) {
         return setNumber(number + numberString);
       }
 
-      //Evaluar si es diferente de cero, no hay punto, y es el primer número
       if (numberString !== '0' && !number.includes('.')) {
         return setNumber(numberString);
       }
 
-      //Evitar 000000.00
       if (numberString === '0' && !number.includes('.')) {
         return;
       }
@@ -121,7 +115,7 @@ export const useCalculator = () => {
     const [firstValue, operation, secondValue] = formula.split(' ');
 
     const num1 = Number(firstValue);
-    const num2 = Number(secondValue); //NaN
+    const num2 = Number(secondValue);
 
     if (isNaN(num2)) return num1;
 
@@ -140,11 +134,9 @@ export const useCalculator = () => {
   };
 
   return {
-    //Properties
     number,
     prevNumber,
     formula,
-    //Methods
     buildNumber,
     toggleSign,
     clean,
