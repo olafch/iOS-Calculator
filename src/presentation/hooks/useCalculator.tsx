@@ -1,20 +1,32 @@
-import {useRef, useState} from 'react';
+import {useRef, useState, useEffect} from 'react';
 
 enum Operator {
-  add,
-  subtract,
-  multiply,
-  divide,
+  add = '+',
+  subtract = '-',
+  multiply = '×',
+  divide = '÷',
 }
 
 export const useCalculator = () => {
+  const [formula, setFormula] = useState('');
   const [number, setNumber] = useState('0');
   const [prevNumber, setPrevNumber] = useState('0');
   const lastOperation = useRef<Operator>();
 
+  useEffect(() => {
+    if (lastOperation.current) {
+      const firstFormulaPart = formula.split(' ').at(0);
+      setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
+    } else {
+      setFormula(number);
+    }
+  }, [number]);
+
   const clean = () => {
     setNumber('0');
     setPrevNumber('0');
+    lastOperation.current = undefined;
+    setFormula('');
   };
 
   //Borrar el último número
@@ -93,32 +105,39 @@ export const useCalculator = () => {
   };
 
   const calculateResult = () => {
-    const num1 = Number(number);
-    const num2 = Number(prevNumber);
+    const result = calculateSubResult();
+    setFormula(`${result}`);
+    lastOperation.current = undefined;
+    setPrevNumber('0');
+  };
 
-    switch (lastOperation.current) {
+  const calculateSubResult = (): number => {
+    const [firstValue, operation, secondValue] = formula.split(' ');
+
+    const num1 = Number(firstValue);
+    const num2 = Number(secondValue); //NaN
+
+    if (isNaN(num2)) return num1;
+
+    switch (operation) {
       case Operator.add:
-        setNumber(`${num1 + num2}`);
-        break;
+        return num1 + num2;
       case Operator.subtract:
-        setNumber(`${num2 - num1}`);
-        break;
+        return num1 - num2;
       case Operator.multiply:
-        setNumber(`${num1 * num2}`);
-        break;
+        return num1 * num2;
       case Operator.divide:
-        setNumber(`${num2 / num1}`);
-        break;
+        return num1 / num2;
       default:
         throw new Error('Operation not implemented yet');
     }
-    setPrevNumber('0');
   };
 
   return {
     //Properties
     number,
     prevNumber,
+    formula,
     //Methods
     buildNumber,
     toggleSign,
