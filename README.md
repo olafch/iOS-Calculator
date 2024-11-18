@@ -14,12 +14,12 @@ A full-featured calculator app for both iOS and Android, built with React Native
 
 <div style="display: flex; flex-direction: column; gap: 10px;">
     <div style="display: flex; justify-content: center; gap: 10px;">
-        <img src="src/assets/screenshots/ios-1.png" width="200" alt="iOS Light Mode"/>
-        <img src="src/assets/screenshots/ios-2.png" width="200" alt="iOS Dark Mode"/>
+        <img src="src/assets/screenshots/ios-1.png" width="200" alt="iOS 1"/>
+        <img src="src/assets/screenshots/ios-2.png" width="200" alt="iOS 2"/>
     </div>
     <div style="display: flex; justify-content: center; gap: 10px;">
-        <img src="src/assets/screenshots/android-1.png" width="200" alt="Android Light Mode"/>
-        <img src="src/assets/screenshots/android-2.png" width="200" alt="Android Dark Mode"/>
+        <img src="src/assets/screenshots/android-1.png" width="200" alt="Android 1"/>
+        <img src="src/assets/screenshots/android-2.png" width="200" alt="Android 2"/>
     </div>
 </div>
 
