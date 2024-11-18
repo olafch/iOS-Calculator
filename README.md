@@ -6,9 +6,9 @@ A full-featured calculator app for both iOS and Android, built with React Native
 
 🚀 Key Features:
 
-• Basic arithmetic operations (addition, subtraction, multiplication, division)
-• Responsive design to fit multiple screen sizes
-• Cross platform native behavior optimized for iOS and Android
+- Basic arithmetic operations (addition, subtraction, multiplication, division)
+- Responsive design to fit multiple screen sizes
+- Cross platform native behavior optimized for iOS and Android
 
 ## Screenshots
 
